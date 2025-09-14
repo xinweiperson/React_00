@@ -1,36 +1,46 @@
-import { Fragment, useState } from "react";
-
+import image from './logo192.png'
+//flexible to fill properties
 function App() {
 
+  // const imgStyleObj = {
+  //         width: 200,
+  //         height: 200,
+  //         backgroundColor: 'grey'
+  //       }
 
-  const [data, setData] = useState([{id: 1, name: 'jacy'}, {id: 2, name: 'Lucy'}])
+  // return (
+  //   <div>
+  //     <img
+  //     src={image}
+  //     alt="aa" 
+  //     className="small"
+  //     style={
+  //       {
+  //         imgStyleObj
+  //       }
+  //     }
+  //     />
+  //   </div>
+  // )
 
-  const listData = data.map(item => (
-    <li key={item.id}>{item.name}</li>
-  ))
-
-  function handlerClick() {
-    setData(data.filter(item => item.id !== 2))
+    const imgData = {
+      className: "small",
+      stype: {
+         width: 200,
+          height: 200,
+          backgroundColor: 'grey'
+      }
   }
 
   return (
-    <>
-      <ul>{listData}</ul>
-      <button onClick={handlerClick}>button</button>
-    </>
-
-    // <>
-    //   <div title={data.title}>{data.content}</div>
-    //   <button onClick={handlerClick}>button</button>
-    // </>
-    // <ul>{listContent}</ul>
-    // <>
-    // <Fragment>
-    //   <div>{content}</div>
-    //   <button onClick={handlerClick}>button</button>
-    // </Fragment>
-
-    // </>
+    <div>
+      <img
+        src={image}
+        alt="hey"
+        {...imgData}// react grammer not es6.  {} is react mark, react do something when loading this || one point of interview
+        //https://www.bilibili.com/video/BV1xM41197cZ?spm_id_from=333.788.videopod.sections&vd_source=0639e655c5231e8d5460752b266e84f2
+      />
+    </div>
   )
 }
 
